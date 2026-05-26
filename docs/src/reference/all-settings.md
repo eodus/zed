@@ -1543,8 +1543,7 @@ or
 {
   "session": {
     "restore_unsaved_buffers": true,
-    "trust_all_worktrees": false,
-    "managed_tools": "ask"
+    "trust_all_worktrees": false
   }
 }
 ```
@@ -1573,21 +1572,7 @@ If this is true, user won't be prompted whether to save/discard dirty files when
 }
 ```
 
-When trusted, project settings are synchronized automatically, language and MCP servers are downloaded and started automatically.
-
-3. Trust policy for Zed-managed tools (language servers, formatters and the bundled Node runtime):
-
-```json [settings]
-{
-  "session": {
-    "managed_tools": "ask"
-  }
-}
-```
-
-- `"ask"` (default): tools must be approved via the security modal before they run.
-- `"trust"`: auto-trust every Zed-managed tool without prompting.
-- `"block"`: never download or start Zed-managed tools, and do not surface a prompt for them.
+When trusted, project settings are synchronized automatically, and language and MCP servers are started automatically.
 
 ### Drag And Drop Selection
 
@@ -3072,6 +3057,16 @@ Positive `integer` values or `null` for unlimited tabs
   "multi_cursor_modifier": "cmd_or_ctrl" // alias: "cmd", "ctrl"
 }
 ```
+
+## Binary Downloads
+
+- Description: Whether Zed may download tool binaries and package-based tools such as language servers, formatters, and the managed Node runtime. This can be overridden in project settings.
+- Setting: `allow_binary_downloads`
+- Default: `true`
+
+**Options**
+
+`boolean` values
 
 ## Node
 
